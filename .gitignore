@@ -1,0 +1,40 @@
+# Hashcat sensitive data
+*.pot
+*.potfile
+
+# Hash files (uncomment if you want to exclude all hashes)
+# *.hash
+# *.hashes
+# *hashes.txt
+
+# Wordlists (can be large)
+*.txt.gz
+*.txt
+*.txt.bz2
+rockyou.txt
+*.dict
+*.wordlist
+
+# Results directory (uncomment to exclude all results)
+# hashcat-work/results/
+
+# Hashcat session data (keep restore files)
+.hashcat/*.log
+
+# System and log files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Environment specific
+.vscode/
+.idea/
+*.code-workspace
