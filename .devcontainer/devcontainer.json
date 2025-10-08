@@ -1,0 +1,50 @@
+{
+  "name": "Hashcat Environment",
+  "image": "ubuntu:22.04",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+  
+  "postCreateCommand": "bash /workspaces/.devcontainer/setup.sh",
+  "postStartCommand": "bash /workspaces/.devcontainer/startup.sh",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.makefile-tools"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "git.enabled": true,
+        "git.autofetch": true
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    }
+  },
+  
+  "containerEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/.hashcat,target=/root/.hashcat,type=bind,consistency=cached"
+  ],
+  
+  "remoteUser": "root",
+  
+  "runArgs": [
+    "--cap-add=SYS_NICE"
+  ]
+}
